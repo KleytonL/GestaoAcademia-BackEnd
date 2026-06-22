@@ -34,6 +34,7 @@ public class AlunoService {
                 .telefone(dto.getTelefone())
                 .dataNascimento(dto.getDataNascimento())
                 .dataCadastro(LocalDate.now())
+                .plano(dto.getPlano())
                 .build();
 
         return toResponseDTO(alunoRepository.save(aluno));
@@ -66,6 +67,7 @@ public class AlunoService {
         dto.setTelefone(aluno.getTelefone());
         dto.setDataNascimento(aluno.getDataNascimento());
         dto.setDataCadastro(aluno.getDataCadastro());
+        dto.setPlano(aluno.getPlano());
         return dto;
     }
 }

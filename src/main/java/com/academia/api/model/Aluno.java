@@ -38,6 +38,10 @@ public class Aluno {
     @Column(name = "dataCadastro")
     private LocalDate dataCadastro;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private PlanoAluno plano;
+
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
     private List<Mensalidade> mensalidades;
 }

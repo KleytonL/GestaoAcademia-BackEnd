@@ -1,5 +1,6 @@
 package com.academia.api.dto;
 
+import com.academia.api.model.PlanoAluno;
 import com.academia.api.model.StatusMensalidade;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -22,5 +23,5 @@ public class AlunoRequestDTO {
 
     private LocalDate dataNascimento;
 
-    private StatusMensalidade status;
+    private PlanoAluno plano;
 }
