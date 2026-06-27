@@ -5,16 +5,15 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
-@Table(name = "alunos")
+@Table(name = "clientes")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Aluno {
+public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +23,8 @@ public class Aluno {
     @Column(nullable = false)
     private String nome;
 
-    @Column(unique = true)
+    @NotBlank
+    @Column(nullable = false, unique = true)
     private String cpf;
 
     @NotBlank
@@ -41,10 +41,4 @@ public class Aluno {
     @Column(name = "dataCadastro")
     private LocalDate dataCadastro;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private PlanoAluno plano;
-
-    @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
-    private List<Mensalidade> mensalidades;
 }

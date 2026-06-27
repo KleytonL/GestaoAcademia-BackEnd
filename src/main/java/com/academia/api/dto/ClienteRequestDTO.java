@@ -1,6 +1,5 @@
 package com.academia.api.dto;
 
-import com.academia.api.model.PlanoAluno;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -8,7 +7,7 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class AlunoRequestDTO {
+public class ClienteRequestDTO {
 
     @NotBlank
     private String nome;
@@ -20,7 +19,8 @@ public class AlunoRequestDTO {
     @NotBlank
     private String telefone;
 
-    private LocalDate dataNascimento;
+    @NotBlank
+    private String cpf;
 
-    private PlanoAluno plano;
+    private LocalDate dataNascimento;
 }
