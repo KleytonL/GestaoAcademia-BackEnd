@@ -1,6 +1,6 @@
 package com.academia.api.model;
 
-public enum PlanoAluno {
+public enum PlanoCliente {
     MENSAL,
     TRIMESTRAL,
     ANUAL

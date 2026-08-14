@@ -1,6 +1,6 @@
 package com.academia.api.model;
 
-public enum StatusMensalidade {
+public enum StatusPagamento {
     PAGO,
     PENDENTE,
     ATRASADO
