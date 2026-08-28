@@ -34,7 +34,6 @@ public class ClienteService {
                 .telefone(dto.getTelefone())
                 .cpf(dto.getCpf())
                 .dataNascimento(dto.getDataNascimento())
-                .dataCadastro(LocalDate.now())
                 .build();
 
         return  toResponseDTO(clienteRepository.save(cliente));
@@ -65,10 +64,10 @@ public class ClienteService {
         dto.setId(cliente.getId());
         dto.setNome(cliente.getNome());
         dto.setEmail(cliente.getEmail());
+        dto.setSenha(cliente.getSenha());
         dto.setTelefone(cliente.getTelefone());
         dto.setCpf(cliente.getCpf());
         dto.setDataNascimento(cliente.getDataNascimento());
-        dto.setDataCadastro(cliente.getDataCadastro());
         return dto;
     }
 }

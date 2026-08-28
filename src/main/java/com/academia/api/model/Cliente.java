@@ -7,7 +7,7 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "clientes")
+@Table(name = "cliente")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,20 +25,20 @@ public class Cliente {
 
     @NotBlank
     @Column(nullable = false, unique = true)
-    private String cpf;
+    private String email;
+
+    private String senha;
 
     @NotBlank
     @Column(nullable = false, unique = true)
-    private String email;
+    private String cpf;
+
 
     @NotBlank
     @Column(nullable = false)
     private String telefone;
 
-    @Column(name = "dataNascimento")
+    @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
-
-    @Column(name = "dataCadastro")
-    private LocalDate dataCadastro;
 
 }

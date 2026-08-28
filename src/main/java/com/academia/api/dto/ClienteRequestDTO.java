@@ -17,6 +17,9 @@ public class ClienteRequestDTO {
     private String email;
 
     @NotBlank
+    private String senha;
+
+    @NotBlank
     private String telefone;
 
     @NotBlank

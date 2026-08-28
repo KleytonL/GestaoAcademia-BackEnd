@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public interface PlanoRepository extends JpaRepository<Plano, Long> {
-    List<Plano> findByAlunoId(Long id);
-}
+//@Repository
+//public interface PlanoRepository extends JpaRepository<Plano, Long> {
+//    List<Plano> findByAlunoId(Long id);
+//}
