@@ -15,4 +15,6 @@ public class UsuarioResponseDTO {
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
+
+    private boolean ativo;
 }

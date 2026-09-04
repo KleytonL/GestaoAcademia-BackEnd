@@ -68,6 +68,7 @@ public class UsuarioService {
         dto.setTelefone(usuario.getTelefone());
         dto.setCpf(usuario.getCpf());
         dto.setDataNascimento(usuario.getDataNascimento());
+        dto.setAtivo(usuario.isAtivo());
 
         return dto;
     }

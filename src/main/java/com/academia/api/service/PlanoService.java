@@ -64,9 +64,11 @@ public class PlanoService {
         PlanoResponseDTO dto = new PlanoResponseDTO();
 
         dto.setId(plano.getId());
+        dto.setNome(plano.getNome());
         dto.setValor(plano.getValor());
         dto.setDuracao(plano.getDuracao());
         dto.setDescricao(plano.getDescricao());
+        dto.setAtivo(plano.isAtivo());
 
         return dto;
     }
