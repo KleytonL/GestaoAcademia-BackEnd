@@ -4,41 +4,28 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
-import java.time.LocalDate;
-
 @Entity
-@Table(name = "cliente")
+@Table(name = "autenticacao")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Cliente {
+public class Autenticacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
-    @Column(nullable = false)
-    private String nome;
-
-    @NotBlank
     @Column(nullable = false, unique = true)
     private String email;
 
-    private String senha;
-
-    @NotBlank
-    @Column(nullable = false, unique = true)
-    private String cpf;
-
-
     @NotBlank
     @Column(nullable = false)
-    private String telefone;
+    private String senha;
 
-    @Column(name = "data_nascimento")
-    private LocalDate dataNascimento;
-
+    @OneToOne
+    @JoinColumn(name = "usuario_id", nullable = false, unique = true)
+    private Usuario usuario;
 }

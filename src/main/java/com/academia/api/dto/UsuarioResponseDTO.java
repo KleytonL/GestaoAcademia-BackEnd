@@ -6,18 +6,13 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class ClienteResponseDTO {
+public class UsuarioResponseDTO {
 
     private Long id;
     private String nome;
-    private String email;
-    private String senha;
     private String telefone;
     private String cpf;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
-
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dataCadastro;
 }
