@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface PlanoRepository extends JpaRepository<Plano, Long> {
-    List<Plano> findByAtivo(boolean ativo);
+    List<Plano> findByAtivoOrderByDuracaoDesc(boolean ativo);
 }

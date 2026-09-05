@@ -19,7 +19,7 @@ public class PlanoService {
 
     public List<PlanoResponseDTO> listarTodos(@RequestParam(required = false) Boolean ativo){
         List<Plano> planos = (ativo != null)
-                ? planoRepository.findByAtivo(ativo)
+                ? planoRepository.findByAtivoOrderByDuracaoDesc(ativo)
                 : planoRepository.findAll();
 
         return planos.stream().map(this::toResponseDTO).collect(Collectors.toList());

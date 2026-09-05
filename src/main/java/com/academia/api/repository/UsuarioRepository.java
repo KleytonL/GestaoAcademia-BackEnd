@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-    List<Usuario> findByAtivo(boolean ativo);
+    List<Usuario> findByAtivoOrderByNomeAsc(boolean ativo);
 }

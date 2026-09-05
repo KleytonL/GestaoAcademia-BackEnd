@@ -18,7 +18,7 @@ public class UsuarioService {
 
     public List<UsuarioResponseDTO> listarTodos(Boolean ativo) {
         List<Usuario> usuarios = (ativo != null)
-                ? usuarioRepository.findByAtivo(ativo)
+                ? usuarioRepository.findByAtivoOrderByNomeAsc(ativo)
                 : usuarioRepository.findAll();
 
         return usuarios.stream().map(this::toResponseDTO).collect(Collectors.toList());
