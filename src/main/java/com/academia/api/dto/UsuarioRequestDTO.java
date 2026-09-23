@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
@@ -13,7 +14,7 @@ public class UsuarioRequestDTO {
 
     @NotBlank
     @Size(max = 25, message = "O campo deve conter no máximo 25 caracteres")
-    @Pattern(regexp = "^[\\p{L}]+$", message = "Não pode conter números ou símbolos")
+    @Pattern(regexp = "^[\\p{L}\s]+$", message = "Não pode conter números ou símbolos")
     private String nome;
 
     @NotBlank
@@ -21,7 +22,7 @@ public class UsuarioRequestDTO {
     private String telefone;
 
     @NotBlank
-    @Pattern(regexp = "^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$", message = "CPF inválido")
+    @CPF(message = "CPF inválido")
     private String cpf;
 
     @Past(message = "Data de nascimento não pode passar do dia atual")

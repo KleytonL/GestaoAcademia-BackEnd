@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     List<Usuario> findByAtivoOrderByNomeAsc(boolean ativo);
+
+    boolean existsByCpf(String cpf);
 }

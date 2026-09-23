@@ -31,6 +31,10 @@ public class UsuarioService {
     }
 
     public UsuarioResponseDTO cadastrarUsuario(UsuarioRequestDTO dto) {
+        if (usuarioRepository.existsByCpf(dto.getCpf())) {
+            throw new RuntimeException("Este CPF já está cadastrado!");
+        }
+
         Usuario usuario = Usuario.builder()
                 .nome(dto.getNome())
                 .telefone(dto.getTelefone())
@@ -38,12 +42,16 @@ public class UsuarioService {
                 .dataNascimento(dto.getDataNascimento())
                 .build();
 
-        return  toResponseDTO(usuarioRepository.save(usuario));
+        return toResponseDTO(usuarioRepository.save(usuario));
     }
 
     public UsuarioResponseDTO atualizarUsuario(Long id, UsuarioRequestDTO dto) {
         Usuario usuario = usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado!"));
+
+        if (usuarioRepository.existsByCpf(dto.getCpf())) {
+            throw new RuntimeException("Este CPF já está cadastrado!");
+        }
 
         usuario.setNome(dto.getNome());
         usuario.setTelefone(dto.getTelefone());
