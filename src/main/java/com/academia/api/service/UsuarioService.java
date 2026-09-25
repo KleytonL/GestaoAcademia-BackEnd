@@ -49,7 +49,7 @@ public class UsuarioService {
         Usuario usuario = usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado!"));
 
-        if (usuarioRepository.existsByCpf(dto.getCpf())) {
+        if (usuarioRepository.existsByCpfAndIdNot(dto.getCpf(), id)) {
             throw new RuntimeException("Este CPF já está cadastrado!");
         }
 
@@ -63,7 +63,7 @@ public class UsuarioService {
 
     public void deletarUsuario(Long id) {
         Usuario usuario = usuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado!"));
+               .orElseThrow(() -> new RuntimeException("Usuário não encontrado!"));
         usuario.setAtivo(false);
         usuarioRepository.save(usuario);
     }
