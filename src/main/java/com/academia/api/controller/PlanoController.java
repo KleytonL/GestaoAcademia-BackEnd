@@ -30,12 +30,12 @@ public class PlanoController {
     }
 
     @PostMapping
-    public ResponseEntity<PlanoResponseDTO> cadastrar(@RequestBody @Valid PlanoRequestDTO dto){
+    public ResponseEntity<PlanoResponseDTO> cadastrar(@RequestBody PlanoRequestDTO dto){
         return ResponseEntity.status(HttpStatus.CREATED).body(planoService.cadastrarPlano(dto));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PlanoResponseDTO> atualizar(@PathVariable Long id, @RequestBody @Valid PlanoRequestDTO dto){
+    public ResponseEntity<PlanoResponseDTO> atualizar(@PathVariable Long id, @RequestBody PlanoRequestDTO dto){
         return ResponseEntity.ok(planoService.atualizarPlano(id,dto));
     }
 
